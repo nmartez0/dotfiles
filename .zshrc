@@ -13,7 +13,7 @@ setopt autocd extendedglob nomatch notify
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/nmartin/.zshrc'
+zstyle :compinstall filename '/home/$USER/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -27,4 +27,14 @@ if [ -z "$TMUX" ]
 then
     tmux attach -t TMUX || tmux new -s TMUX
 fi
-alias config='/usr/bin/git --git-dir=/home/nmartin/.dotfiles/ --work-tree=/home/nmartin'
+alias config='/usr/bin/git --git-dir=/home/$USER/.dotfiles/ --work-tree=/home/$USER'
+
+# Term colors
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias ip='ip -color=auto'
+export LESS='-R --use-color -Dd+r$Du+b$'
+alias ls='ls --color=auto'
+alias ll='ls -lathr'
+
+
